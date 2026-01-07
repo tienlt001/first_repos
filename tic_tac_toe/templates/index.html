@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <h1>Tic Tac Toe</h1>
+    <div id="controls">
+      <label><input type="checkbox" id="ai_enabled" checked> Play vs AI</label>
+      <label>AI plays as:
+        <select id="ai_player"><option value="O" selected>O</option><option value="X">X</option></select>
+      </label>
+      <button id="new">New game</button>
+    </div>
+    <div id="board" class="board">
+      {% for i in range(9) %}
+        <button class="cell" data-index="{{ i }}">{{ cells[i] }}</button>
+      {% endfor %}
+    </div>
+    <div id="status"></div>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+  </body>
+</html>
